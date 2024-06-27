@@ -7,11 +7,8 @@ module.exports = ({ env }) => ({
             port: env.int("DATABASE_PORT", 5432),
             database: env("DATABASE_NAME", "database"),
             user: env("DATABASE_USERNAME", "admin"),
-            password: env("DATABASE_PASSWORD", "Fugazi-7610"),
+            password: env("DATABASE_PASSWORD", ""),
             schema: env("DATABASE_SCHEMA", "public"), // Not required
-            // ssl: {
-            //     rejectUnauthorized: env.bool("DATABASE_SSL_SELF", false),
-            // },
         },
         debug: false,
     },
