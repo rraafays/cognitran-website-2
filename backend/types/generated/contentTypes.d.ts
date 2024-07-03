@@ -400,6 +400,16 @@ export interface ApiBlogBlog extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    summary: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -456,6 +466,13 @@ export interface ApiProductProduct extends Schema.CollectionType {
         };
       }>;
     infoPack: Attribute.Media<'files'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    subtitle: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {

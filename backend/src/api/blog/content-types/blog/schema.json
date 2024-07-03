@@ -35,17 +35,27 @@
       "required": true
     },
     "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
+      }
+    },
+    "summary": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
       },
-      "required": true
+      "type": "text",
+      "required": true,
+      "maxLength": 200
     }
   }
 }

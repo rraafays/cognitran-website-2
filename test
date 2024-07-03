@@ -3,34 +3,34 @@
 args=(--body --check-status --ignore-stdin --timeout=2.5)
 
 request() {
-	http "${args[@]}" "$1" http://localhost:1337/api/"$2" "${@:3}"
+    http "${args[@]}" "$1" http://localhost:1337/api/"$2" "${@:3}"
 }
 
 error() {
-	printf "\e[1;41m error \e[0m %s" "$@"
+    printf "\e[1;41m error \e[0m %s" "$@"
 }
 
 proceed() {
-	printf "\e[1;42m success \e[0m\n"
+    printf "\e[1;42m success \e[0m\n"
 }
 
 test() {
-	printf "\n\e[1;46m test \e[0m %s\n\n" "$2"
-	if request "$1" "$3" "${@:4}"; then
-		proceed
-	else
-		case $? in
-		2) error "request timed out!" ;;
-		3) error "unexpected HTTP 3xx Redirection!" ;;
-		4) error "http 4xx Client Error!" ;;
-		5) error "http 5xx Server Error!" ;;
-		6) error "exceeded --max-redirects=<n> redirects!" ;;
-		*)
-			error "server doesn't seem to be running"
-			exit 1
-			;;
-		esac
-	fi
+    printf "\n\e[1;46m test \e[0m %s\n\n" "$2"
+    if request "$1" "$3" "${@:4}"; then
+        proceed
+    else
+        case $? in
+        2) error "request timed out!" ;;
+        3) error "unexpected HTTP 3xx Redirection!" ;;
+        4) error "http 4xx Client Error!" ;;
+        5) error "http 5xx Server Error!" ;;
+        6) error "exceeded --max-redirects=<n> redirects!" ;;
+        *)
+            error "server doesn't seem to be running"
+            exit 1
+            ;;
+        esac
+    fi
 }
 
 test POST "test user has been created. { username: tester, password: tester }" auth/local "identifier"="tester" "password"="tester"
