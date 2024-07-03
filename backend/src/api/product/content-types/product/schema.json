@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "blogs",
+  "collectionName": "products",
   "info": {
-    "singularName": "blog",
-    "pluralName": "blogs",
-    "displayName": "Blog",
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
     "description": ""
   },
   "options": {
@@ -16,16 +16,30 @@
     }
   },
   "attributes": {
-    "title": {
+    "name": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
       "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "required": true
     },
-    "body": {
+    "features": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -34,15 +48,15 @@
       "type": "richtext",
       "required": true
     },
-    "banner": {
+    "infoPack": {
       "allowedTypes": [
-        "images"
+        "files"
       ],
       "type": "media",
       "multiple": false,
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
       "required": true

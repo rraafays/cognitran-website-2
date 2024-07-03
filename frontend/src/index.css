@@ -1,13 +1,44 @@
+@import "@fontsource/iosevka-curly";
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin: 0 30px;
+  font-family: "Iosevka Curly";
+  background: #f1f1f1;
+}
+h1,h2,h3,h4 {
+  font-weight: 500;
+}
+.App {
+  font-size: 1.2em;
+  margin: 10px auto;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #8e2ad6;
+}
+.site-header h1 {
+  font-size: 1.5em;
+  color: #8e2ad6;
+  padding-bottom: 10px;
+  border-bottom: 2px solid;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.navigation {
+    display: flex;
+    font-size: 70%;
+    align-items: center;
+}
+
+.navigation .item {
+    padding-left: 30px;
+    align-items: center;
 }
