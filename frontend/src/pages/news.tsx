@@ -1,26 +1,29 @@
 import { Key } from "react";
+import { Link } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 
+type NewsSummary = {
+  data: NewsData[];
+};
+
 type NewsData = {
-  data: NewsAttribute[];
-};
-
-type NewsAttribute = {
-  attributes: NewsItem;
-};
-
-type NewsItem = {
   id: Key;
+  attributes: News;
+};
+
+type News = {
   title: string;
   body: string;
+  summary: string;
   publishedAt: string;
 };
 
 export default function News() {
-  const { loading, data, error } = useFetch<NewsData>("http://localhost:1337/api/blogs");
+  const { loading, data, error } = useFetch<NewsSummary>("http://localhost:1337/api/blogs");
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
+
   return (
     <div>
       {data?.data.map((newsItem) => (
@@ -30,7 +33,8 @@ export default function News() {
             <h2>{newsItem.attributes.title}</h2>
           </div>
           <div>
-            <p>{newsItem.attributes.body}</p>
+            <p>{newsItem.attributes.summary}</p>
+            <Link to={`/news/${newsItem.id}`}>Read More</Link>
           </div>
         </div>
       ))}
