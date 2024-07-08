@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cd ./backend/ || exit
+cd ./frontend/ || exit
 pnpm install
-pnpm run develop
+pnpm start
 cd - || exit
