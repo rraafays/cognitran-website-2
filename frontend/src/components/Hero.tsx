@@ -125,7 +125,7 @@ const Hero = () => {
                     >
                         (a Snap-On Inc. Company)
                     </p>
-                    <a href="#about">
+                    <a href="#products">
                         <MagicButton
                             text="Browse Products"
                             icon={<FaLocationArrow />}
