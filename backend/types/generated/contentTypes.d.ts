@@ -943,6 +943,29 @@ export interface ApiHeroHero extends Schema.SingleType {
   };
 }
 
+export interface ApiLinkLink extends Schema.CollectionType {
+  collectionName: 'links';
+  info: {
+    singularName: 'link';
+    pluralName: 'links';
+    displayName: 'Link';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Attribute.String & Attribute.Required;
+    links: Attribute.RichText & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::link.link', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::link.link', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Schema.CollectionType {
   collectionName: 'products';
   info: {
@@ -1041,6 +1064,7 @@ declare module '@strapi/types' {
       'api::article.article': ApiArticleArticle;
       'api::brand.brand': ApiBrandBrand;
       'api::hero.hero': ApiHeroHero;
+      'api::link.link': ApiLinkLink;
       'api::product.product': ApiProductProduct;
     }
   }

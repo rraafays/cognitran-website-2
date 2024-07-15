@@ -32,8 +32,6 @@ interface Data {
     };
 }
 
-type Articles = Data["articles"]["data"];
-
 const style =
     "bg-neutral-100 border-2 rounded-xl p-2 flex flex-col items-center justify-center";
 
@@ -42,7 +40,8 @@ const Grid = () => {
     data && console.log(data);
     return (
         data && (
-            <div
+            <section
+                id="products"
                 className="
                 grid 
                 grid-cols-3 
@@ -53,8 +52,7 @@ const Grid = () => {
                 "
             >
                 {data.articles.data.map((item, i) => (
-                    <section
-                        id="products"
+                    <div
                         key={i}
                         className={`${style} ${i === 1 && "md:col-span-2"} ${i === 2 && "md:row-span-2"}`}
                     >
@@ -64,9 +62,9 @@ const Grid = () => {
                         <p className="text-gray-400">
                             {item.attributes.summary}
                         </p>
-                    </section>
+                    </div>
                 ))}
-            </div>
+            </section>
         )
     );
 };

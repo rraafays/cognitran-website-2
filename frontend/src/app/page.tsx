@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import { NavigationBar } from "@/components/ui/NavigationBar";
 import { FaHome } from "react-icons/fa";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import Footer from "@/components/Footer";
 
 const client = new ApolloClient({
     uri: "http://localhost:1337/graphql",
@@ -30,10 +31,26 @@ export default function Home() {
                     <NavigationBar
                         navItems={[
                             { name: "Home", link: "/", icon: <FaHome /> },
+                            {
+                                name: "Products",
+                                link: "/products",
+                                icon: <FaHome />,
+                            },
+                            {
+                                name: "Articles",
+                                link: "/articles",
+                                icon: <FaHome />,
+                            },
+                            {
+                                name: "Careers",
+                                link: "/careers",
+                                icon: <FaHome />,
+                            },
                         ]}
                     />
                     <Hero />
                     <Grid />
+                    <Footer />
                 </div>
             </ApolloProvider>
         </main>
