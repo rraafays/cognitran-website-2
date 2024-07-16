@@ -5,6 +5,9 @@ import { NavigationBar } from "@/components/ui/NavigationBar";
 import { FaHome } from "react-icons/fa";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import Footer from "@/components/Footer";
+import { AiFillProduct } from "react-icons/ai";
+import { RiArtboardFill, RiArticleFill } from "react-icons/ri";
+import { MdWork } from "react-icons/md";
 
 const client = new ApolloClient({
     uri: "http://localhost:1337/graphql",
@@ -33,18 +36,18 @@ export default function Home() {
                             { name: "Home", link: "/", icon: <FaHome /> },
                             {
                                 name: "Products",
-                                link: "/products",
-                                icon: <FaHome />,
+                                link: "#products",
+                                icon: <AiFillProduct />,
                             },
                             {
                                 name: "Articles",
-                                link: "/articles",
-                                icon: <FaHome />,
+                                link: "#articles",
+                                icon: <RiArticleFill />,
                             },
                             {
                                 name: "Careers",
-                                link: "/careers",
-                                icon: <FaHome />,
+                                link: "#careers",
+                                icon: <MdWork />,
                             },
                         ]}
                     />

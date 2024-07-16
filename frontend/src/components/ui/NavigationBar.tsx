@@ -82,13 +82,13 @@ export const NavigationBar = ({
                 )}
             >
                 <img
-                    className="lg:w-10"
+                    className="lg:w-10 max-sm:w-9"
                     src={
                         data &&
                         `http://localhost:1337${data.brand.data.attributes.icon.data.attributes.url}`
                     }
                 />
-                <h1 className="text-black font-bold ms-0 ps-0 pe-10">
+                <h1 className="text-black font-bold ms-0 ps-0 pe-10 max-sm:hidden ">
                     Cognitran
                 </h1>
                 {navItems.map((navItem: any, idx: number) => (
@@ -96,7 +96,7 @@ export const NavigationBar = ({
                         key={`link=${idx}`}
                         href={navItem.link}
                         className={cn(
-                            "relative items-center flex space-x-1 text-blue-500 font-bold dark:hover:text-neutral-300 hover:text-neutral-500"
+                            "relative items-center flex space-x-1 text-blue-500 font-bold dark:hover:text-neutral-300 hover:text-neutral-500 max-sm:w-8"
                         )}
                     >
                         <span className="block sm:hidden">{navItem.icon}</span>
@@ -105,12 +105,12 @@ export const NavigationBar = ({
                         </span>
                     </Link>
                 ))}
-                <button className="ps-60 py-2">
+                <Link className="ps-60 py-2 max-sm:ps-0" href="#footer">
                     <span className="bg-white border-4 text-sm relative border-blue-500 text-blue-500 font-bold rounded-full px-4 py-2 ">
                         Contact Us
                     </span>
                     <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px h-px" />
-                </button>
+                </Link>
             </motion.div>
         </AnimatePresence>
     );

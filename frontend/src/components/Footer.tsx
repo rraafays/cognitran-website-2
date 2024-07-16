@@ -35,6 +35,7 @@ const Footer = () => {
     console.log(data);
     return (
         <footer
+            id="footer"
             className="
             flex 
             flex-col
