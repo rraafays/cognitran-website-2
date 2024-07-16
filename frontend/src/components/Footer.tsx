@@ -1,39 +1,38 @@
 import { gql, useQuery } from "@apollo/client";
 import React from "react";
+import Markdown from "react-markdown";
 
-const ARTICLES = gql`
-    query getArticles {
-        articles {
+const LINKS = gql`
+    query getLinks {
+        links {
             data {
                 id
                 attributes {
-                    title
-                    summary
-                    body
+                    category
+                    links
                 }
             }
         }
     }
 `;
 
-interface Article {
+interface Link {
     id: number;
     attributes: {
-        title: string;
-        summary: string;
-        body: string;
+        category: string;
+        links: string;
     };
 }
 
 interface Data {
-    articles: {
-        data: Article[];
+    links: {
+        data: Link[];
     };
 }
 
 const Footer = () => {
-    const { loading, error, data } = useQuery<Data>(ARTICLES);
-
+    const { loading, error, data } = useQuery<Data>(LINKS);
+    console.log(data);
     return (
         <footer
             className="
@@ -77,8 +76,27 @@ const Footer = () => {
                     </p>
                 </div>
                 {data &&
-                    data.articles.data.map((item) => {
-                        return <div>{item.attributes.title}</div>;
+                    data.links.data.map((item) => {
+                        return (
+                            <div>
+                                <b
+                                    className="
+                                    text-base
+                                    text-gray-400
+                                    "
+                                >
+                                    {item.attributes.category}
+                                </b>
+                                <Markdown
+                                    className="
+                                    text-base
+                                    text-gray-400
+                                    "
+                                >
+                                    {item.attributes.links}
+                                </Markdown>
+                            </div>
+                        );
                     })}
             </div>
         </footer>
