@@ -101,7 +101,9 @@ const Hero = () => {
                     }
                     alt={""}
                 />
-                <h1 className="font-extrabold text-7xl">Cognitran</h1>
+                <h1 className="font-extrabold md:text-7xl text-5xl">
+                    Cognitran
+                </h1>
             </div>
             <div
                 className="
