@@ -10,6 +10,8 @@ import { RiArtboardFill, RiArticleFill } from "react-icons/ri";
 import { MdWork } from "react-icons/md";
 import { Testimonials } from "@/components/Testimonials";
 import { ProductCard } from "@/components/ProductCard";
+import Articles from "@/components/Articles";
+import { LoadScreen } from "../components/Loader";
 
 const client = new ApolloClient({
     uri: "http://localhost:1337/graphql",
@@ -56,6 +58,7 @@ export default function Home() {
                     <Hero />
                     <ProductCard />
                     <Testimonials />
+                    <Articles />
                     <Footer />
                 </div>
             </ApolloProvider>
