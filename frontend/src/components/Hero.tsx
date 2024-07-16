@@ -91,7 +91,7 @@ const Hero = () => {
                     "
                 />
             </div>
-            <div className="z-0 relative justify-center items-center opacity-100 flex">
+            <div className="z-0 relative justify-center items-center opacity-100 flex gap-10">
                 <Image
                     width={200}
                     height={200}
@@ -101,6 +101,7 @@ const Hero = () => {
                     }
                     alt={""}
                 />
+                <h1 className="font-extrabold text-7xl">Cognitran</h1>
             </div>
             <div
                 className="
