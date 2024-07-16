@@ -39,7 +39,7 @@ export function Testimonials() {
     return (
         data && (
             <div>
-                <div className="h-[20rem] rounded-md flex mt-0 pt-0 flex-col antialiased bg-black-100 dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+                <div className="h-[20rem] rounded-md flex mt-10 pt-0 flex-col antialiased bg-black-100 dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
                     <InfiniteMovingCards
                         articles={data.articles.data}
                         direction="right"
