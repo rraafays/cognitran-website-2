@@ -1,6 +1,7 @@
 "use client";
 
 import { gql, useQuery } from "@apollo/client";
+import { ProductCard } from "./ProductCard";
 
 const ARTICLES = gql`
     query getArticles {
@@ -39,10 +40,12 @@ const Grid = () => {
     const { loading, error, data } = useQuery<Data>(ARTICLES);
     data && console.log(data);
     return (
-        data && (
-            <section
-                id="products"
-                className="
+        <div>
+            <ProductCard />
+            {data && (
+                <section
+                    id="articles"
+                    className="
                 grid 
                 grid-cols-3 
                 relative
@@ -50,22 +53,23 @@ const Grid = () => {
                 gap-4
                 my-10
                 "
-            >
-                {data.articles.data.map((item, i) => (
-                    <div
-                        key={i}
-                        className={`${style} ${i === 1 && "md:col-span-2"} ${i === 2 && "md:row-span-2"}`}
-                    >
-                        <h2 className="text-xl font-bold">
-                            {item.attributes.title}
-                        </h2>
-                        <p className="text-gray-400">
-                            {item.attributes.summary}
-                        </p>
-                    </div>
-                ))}
-            </section>
-        )
+                >
+                    {data.articles.data.map((item, i) => (
+                        <div
+                            key={i}
+                            className={`${style} ${i === 1 && "md:col-span-2"} ${i === 2 && "md:row-span-2"}`}
+                        >
+                            <h2 className="text-xl font-bold">
+                                {item.attributes.title}
+                            </h2>
+                            <p className="text-gray-400">
+                                {item.attributes.summary}
+                            </p>
+                        </div>
+                    ))}
+                </section>
+            )}
+        </div>
     );
 };
 

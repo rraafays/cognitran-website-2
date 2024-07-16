@@ -3,8 +3,29 @@ import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa";
+import Image from "next/image";
+import { gql, useQuery } from "@apollo/client";
+
+const BRAND = gql`
+    query getArticles {
+        brand {
+            data {
+                attributes {
+                    icon {
+                        data {
+                            attributes {
+                                url
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
 
 const Hero = () => {
+    const { loading, error, data } = useQuery(BRAND);
     return (
         <div
             className="
@@ -53,7 +74,7 @@ const Hero = () => {
                 justify-center 
                 absolute 
                 top-0 
-                left-0
+                right-2
                 "
             >
                 <div
@@ -68,6 +89,17 @@ const Hero = () => {
                     bg-white 
                     [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]
                     "
+                />
+            </div>
+            <div className="z-0 relative justify-center items-center opacity-100 flex">
+                <Image
+                    width={200}
+                    height={200}
+                    src={
+                        data &&
+                        `http://localhost:1337${data.brand.data.attributes.icon.data.attributes.url}`
+                    }
+                    alt={""}
                 />
             </div>
             <div
@@ -98,6 +130,7 @@ const Hero = () => {
                         text-center 
                         text-blue-100 
                         max-w-80
+                        z-10
                         "
                     >
                         Innovative Technology
@@ -108,6 +141,7 @@ const Hero = () => {
                         text-[40px]
                         md:text-5xl
                         lg:text-6xl
+                        z-10
                         "
                         words="We are a global OEM IT Partner - experts in Aftersales, 
                         Diagnostics, Service Analytics, Content Management 
@@ -121,6 +155,7 @@ const Hero = () => {
                         text-sm
                         md:text-sm
                         lg:text-sm
+                        z-10
                         "
                     >
                         (a Snap-On Inc. Company)
